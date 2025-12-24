@@ -2,242 +2,170 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Ismael | Full-Stack Web Developer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ismael Abdulhakim | Full-Stack Web Developer</title>
 
 <style>
-:root{
-  --bg:#0f172a;
-  --text:#ffffff;
-  --card:#1e293b;
-  --accent:#38bdf8;
-}
-.light{
-  --bg:#f8fafc;
-  --text:#020617;
-  --card:#e5e7eb;
-}
-
 body{
   margin:0;
-  font-family:Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  transition:0.4s;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  color:#fff;
 }
 
-/* HEADER */
 header{
+  padding:40px;
   text-align:center;
-  padding:70px 20px;
-}
-header h1{
-  font-size:3rem;
-}
-header h2{
-  color:var(--accent);
 }
 
-/* BUTTONS */
-.btn{
-  padding:12px 26px;
-  background:var(--accent);
-  color:black;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  display:inline-block;
-  margin:10px;
+h1{
+  font-size:2.5rem;
+  letter-spacing:2px;
 }
 
-/* TOGGLE */
-.toggle{
-  position:fixed;
-  top:15px;
-  right:15px;
-  background:var(--accent);
-  color:black;
-  padding:8px 14px;
-  border-radius:20px;
-  cursor:pointer;
+p{
+  max-width:800px;
+  margin:auto;
+  line-height:1.6;
 }
 
-/* GALLERY */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
+  gap:30px;
   padding:40px;
+  perspective:1000px;
 }
 
 .card{
-  background:var(--card);
-  padding:20px;
+  background:#111;
   border-radius:20px;
-  text-align:center;
-  transition:0.5s;
+  overflow:hidden;
   transform-style:preserve-3d;
+  transition:transform 0.6s;
+  box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
+
 .card:hover{
-  transform:rotateY(12deg) scale(1.05);
+  transform:rotateY(15deg) rotateX(8deg) scale(1.05);
 }
+
 .card img{
   width:100%;
-  border-radius:15px;
+  height:300px;
+  object-fit:cover;
   cursor:pointer;
 }
+
 .card h3{
-  color:var(--accent);
-}
-
-/* ABOUT */
-.about{
-  max-width:900px;
-  margin:auto;
-  padding:40px;
-}
-
-/* TESTIMONIALS */
-.testimonials{
-  padding:40px;
-  background:#020617;
-}
-.test{
-  background:var(--card);
-  padding:20px;
-  border-radius:15px;
-  margin:15px 0;
-}
-
-/* CONTACT */
-.contact{
+  padding:15px;
   text-align:center;
-  padding:40px;
 }
 
-/* MODAL */
+video{
+  width:100%;
+  border-radius:20px;
+  margin-top:40px;
+}
+
+.about{
+  padding:40px;
+  background:#0b1c25;
+}
+
+.contact{
+  padding:40px;
+  text-align:center;
+}
+
+.contact a{
+  color:#00ffcc;
+  text-decoration:none;
+  font-size:1.1rem;
+}
+
+/* Modal */
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.8);
-  justify-content:center;
+  background:rgba(0,0,0,0.9);
   align-items:center;
-}
-.modal img{
-  max-width:90%;
-  border-radius:20px;
+  justify-content:center;
+  z-index:999;
 }
 
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  color:white;
-  padding:15px 20px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:bold;
+.modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:10px;
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="toggle" onclick="toggleMode()">🌗 Mode</div>
-
 <header>
-<h1>Ismael Abdulhakim</h1>
-<h2>Full-Stack Web Developer</h2>
-<p>I build modern websites that increase trust, visibility, and income.</p>
-<a class="btn" href="https://ismaelabdulhakim54-glitch.github.io/ismael-website/" target="_blank">
-🌍 Visit My Website
-</a>
+  <h1>Ismael — Full-Stack Web Developer</h1>
+  <p>
+    I design and build modern, fast, and visually powerful websites.
+    I focus on clean design, animations, real user experience, and strong performance.
+    If you want your business or idea to stand out online — you’re in the right place.
+  </p>
 </header>
 
-<!-- IMAGES -->
 <section class="gallery">
+  <div class="card">
+    <img src="images/ss1.jpg" onclick="openImg(this.src)">
+    <h3>Modern Web Design</h3>
+  </div>
 
-<div class="card">
-<img src="images/pexels-kevin-ku.jpg" onclick="openImg(this)">
-<h3>Clear Vision in Code</h3>
-<p>I see problems clearly and deliver precise solutions.</p>
-</div>
+  <div class="card">
+    <img src="images/ss2.jpg" onclick="openImg(this.src)">
+    <h3>Business Growth Websites</h3>
+  </div>
 
-<div class="card">
-<img src="images/website-income.jpg" onclick="openImg(this)">
-<h3>Increase Your Income</h3>
-<p>Your website becomes a money-making asset.</p>
-</div>
-
-<div class="card">
-<img src="images/mini-man-code.jpg" onclick="openImg(this)">
-<h3>Big Ideas, Clean Code</h3>
-<p>Even complex systems are handled professionally.</p>
-</div>
-
-<div class="card">
-<img src="images/coding-person.jpg" onclick="openImg(this)">
-<h3>Focused Development</h3>
-<p>Every line of code is written with purpose.</p>
-</div>
-
+  <div class="card">
+    <img src="images/ss3.jpg" onclick="openImg(this.src)">
+    <h3>Clean & Professional Code</h3>
+  </div>
 </section>
 
-<!-- ABOUT -->
+<section style="padding:40px">
+  <h2>Promo Video</h2>
+  <video controls>
+    <source src="images/video1.mp4" type="video/mp4">
+  </video>
+</section>
+
 <section class="about">
-<h2>About Me</h2>
-<p>
-I am <strong>Ismael Abdulhakim</strong>, a Full-Stack Web Developer who
-creates fast, modern, and professional websites.
-I focus on real-world results: visibility, credibility, and growth.
-</p>
+  <h2>About Me</h2>
+  <p>
+    I am Ismael, a Full-Stack Web Developer who builds modern websites with real impact.
+    I work with frontend and backend technologies and deploy websites online.
+    My goal is to help individuals and businesses grow with strong digital presence.
+  </p>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-<h2>Client Testimonials</h2>
-
-<div class="test">
-⭐️⭐️⭐️⭐️⭐️  
-“Professional, fast, and very creative. My business visibility increased.”
-</div>
-
-<div class="test">
-⭐️⭐️⭐️⭐️⭐️  
-“He understands business, not just code.”
-</div>
-</section>
-
-<!-- CONTACT -->
 <section class="contact">
-<h2>Contact</h2>
-<p>📧 Ismaelabdulhakim54@gmail.com</p>
-<p>📞 +251 9 54 53 96 19</p>
+  <h2>Contact</h2>
+  <p>📞 +251 9 54 53 96 19</p>
+  <p>📞 +251 9 11 46 41 68</p>
+  <p>📧 <a href="mailto:Ismaelabdulhakim54@gmail.com">Ismaelabdulhakim54@gmail.com</a></p>
 </section>
 
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/251954539619" target="_blank">
-💬 WhatsApp
-</a>
-
-<!-- IMAGE MODAL -->
 <div class="modal" id="modal" onclick="closeImg()">
-<img id="modalImg">
+  <img id="modalImg">
 </div>
 
 <script>
-function openImg(img){
- document.getElementById("modal").style.display="flex";
- document.getElementById("modalImg").src=img.src;
+function openImg(src){
+  document.getElementById("modal").style.display="flex";
+  document.getElementById("modalImg").src=src;
 }
 function closeImg(){
- document.getElementById("modal").style.display="none";
-}
-function toggleMode(){
- document.body.classList.toggle("light");
+  document.getElementById("modal").style.display="none";
 }
 </script>
 
