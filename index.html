@@ -4,130 +4,205 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ismael Full Stack Website Developer</title>
+
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background: #121212;
-    color: #fff;
-    margin:0; padding:0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f1a;
+  color: #fff;
 }
+
+/* HEADER */
 header {
-    text-align:center;
-    padding:30px;
-    font-size:2.5em;
-    font-weight:bold;
-    letter-spacing:1px;
+  background: #0a3cff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.container {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    padding:20px;
+
+header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 22px;
 }
+
+/* MENU */
+.menu {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #222;
+}
+
+.dropdown a:hover {
+  background: #0a3cff;
+}
+
+/* SECTION */
+section {
+  padding: 25px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+/* IMAGE CARD */
 .card {
-    background:#1e1e1e;
-    border-radius:10px;
-    overflow:hidden;
-    width:300px;
-    text-align:center;
-    cursor:pointer;
-    transition: transform 0.3s;
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  transform: perspective(800px) rotateX(0deg);
+  transition: transform 0.4s;
 }
+
 .card:hover {
-    transform: scale(1.05);
+  transform: perspective(800px) rotateX(4deg) scale(1.02);
 }
+
 .card img {
-    width:100%;
-    height:200px;
-    object-fit:cover;
+  width: 100%;
+  cursor: pointer;
 }
+
 .card h3 {
-    margin:10px;
+  margin: 15px;
+  color: #4da3ff;
 }
+
 .card p {
-    padding:0 10px 10px;
+  margin: 0 15px 20px;
+  font-size: 14px;
+  line-height: 1.5;
 }
-.about {
-    max-width:800px;
-    margin:50px auto;
-    padding:20px;
-    background:#1e1e1e;
-    border-radius:10px;
+
+/* VIDEO */
+video {
+  width: 100%;
+  border-radius: 15px;
+  margin-top: 30px;
 }
-.about h2 {
-    text-align:center;
-}
-.video-container {
-    text-align:center;
-    margin:30px 0;
-}
-.video-container video {
-    width:90%;
-    border-radius:10px;
-}
-.footer {
-    text-align:center;
-    padding:20px;
-    background:#000;
+
+/* FOOTER */
+footer {
+  padding: 25px;
+  background: #070b14;
+  text-align: center;
+  font-size: 14px;
 }
 </style>
 </head>
+
 <body>
 
-<header>Ismael Full Stack Website Developer</header>
+<header>
+  <h1>Ismael Full Stack Website Developer</h1>
+  <div class="menu" onclick="toggleMenu()">⋮</div>
 
-<div class="container">
-  <div class="card" onclick="viewImage('images/pexels-kevin-ku-92347-577585.jpg','Lens in front of code')">
-    <img src="images/pexels-kevin-ku-92347-577585.jpg" alt="">
-    <h3>Lens View of Code</h3>
+  <div class="dropdown" id="menu">
+    <a href="#about">About</a>
+    <a href="https://www.upwork.com" target="_blank">Upwork</a>
+    <a href="https://www.fiverr.com" target="_blank">Fiverr</a>
+    <a href="#contact">Contact</a>
   </div>
-  <div class="card" onclick="viewImage('images/website-9049204_1280-1.jpg','Increasing Income')">
-    <img src="images/website-9049204_1280-1.jpg" alt="">
-    <h3>Boost Your Income</h3>
-  </div>
-  <div class="card" onclick="viewImage('images/pexels-fotios-photos-2363482.jpg','Mini Man Big Code')">
-    <img src="images/pexels-fotios-photos-2363482.jpg" alt="">
-    <h3>Mini Man vs Big Code</h3>
-  </div>
-  <div class="card" onclick="viewImage('images/pexels-fotios-photos-16129705.jpg','Person Creating Code')">
-    <img src="images/pexels-fotios-photos-16129705.jpg" alt="">
-    <h3>Developer at Work</h3>
-  </div>
-  <div class="card" onclick="viewImage('images/pexels-negativespace-160107.jpg','Only Code on Laptop')">
-    <img src="images/pexels-negativespace-160107.jpg" alt="">
-    <h3>Code Focused</h3>
-  </div>
-  <div class="card" onclick="viewImage('images/pexels-thepaintedsquare-4200831.jpg','Laptop Open on Google')">
-    <img src="images/pexels-thepaintedsquare-4200831.jpg" alt="">
-    <h3>Research & Explore</h3>
-  </div>
+</header>
+
+<section class="grid">
+
+<div class="card">
+  <img src="images/pexels-kevin-ku-92347-577585.jpg" onclick="openImg(this.src)">
+  <h3>Clear Vision Development</h3>
+  <p>I analyze your project deeply like a lens focusing on clean, secure, and scalable code.</p>
 </div>
 
-<div class="about">
-  <h2>About Me</h2>
-  <p>Hello! I’m Ismael, a full stack website developer. I specialize in building modern, interactive, and responsive websites. My experience includes working with HTML5, CSS3, JavaScript, Node.js, and integrating 3D animations for a rich user experience. I can update and manage your website directly from my mobile setup using Termux. Contact me for custom web solutions and let’s grow your online presence together!</p>
-  <p>Email: <a href="mailto:Ismaelabdulhakim54@gmail.com">Ismaelabdulhakim54@gmail.com</a></p>
-  <p>Phone: +2519 54 53 96 19 | +2519 11 46 41 68</p>
+<div class="card">
+  <img src="images/website-9049204_1280-1.jpg" onclick="openImg(this.src)">
+  <h3>Income Growth Websites</h3>
+  <p>Websites designed to increase traffic, conversions, and your business income.</p>
 </div>
 
-<div class="video-container">
-  <video controls>
-    <source src="images/video1.mp4" type="video/mp4">
-  </video>
+<div class="card">
+  <img src="images/pexels-fotios-photos-2363482.jpg" onclick="openImg(this.src)">
+  <h3>Big Ideas, Powerful Code</h3>
+  <p>Turning complex ideas into powerful systems using modern technologies.</p>
 </div>
+
+<div class="card">
+  <img src="images/pexels-fotios-photos-16129705.jpg" onclick="openImg(this.src)">
+  <h3>Professional Coding Process</h3>
+  <p>Clean structure, performance optimization, and best development practices.</p>
+</div>
+
+<div class="card">
+  <img src="images/pexels-negativespace-160107.jpg" onclick="openImg(this.src)">
+  <h3>Backend & Frontend Mastery</h3>
+  <p>Full stack solutions from UI to server, database, and deployment.</p>
+</div>
+
+<div class="card">
+  <img src="images/pexels-thepaintedsquare-4200831.jpg" onclick="openImg(this.src)">
+  <h3>Search & Performance Focus</h3>
+  <p>SEO-friendly, fast-loading, Google-optimized websites.</p>
+</div>
+
+</section>
+
+<section id="about">
+<h2 style="color:#4da3ff;">About Me</h2>
+<p>
+I am <strong>Ismael</strong>, a Full Stack Website Developer.  
+I build modern websites, 3D animations, AI animations, business systems, and scalable platforms using real-world development experience.
+</p>
+<p>
+I help clients grow their online presence and income through high-quality design and clean code.
+</p>
+
+<video controls>
+  <source src="images/video1.mp4" type="video/mp4">
+</video>
+</section>
+
+<section id="contact">
+<h2 style="color:#4da3ff;">Contact</h2>
+<p>📧 Email: Ismaelabdulhakim54@gmail.com</p>
+<p>📱 Phone: +2519 54 53 96 19 / +2519 11 46 41 68</p>
+</section>
+
+<footer>
+© 2026 Ismael Full Stack Website Developer
+</footer>
 
 <script>
-function viewImage(src,title){
-    const newWin = window.open("", "_blank");
-    newWin.document.write("<h2 style='text-align:center;color:#fff;margin-top:20px;'>"+title+"</h2>");
-    newWin.document.write("<img src='"+src+"' style='width:90%;display:block;margin:20px auto;border-radius:10px;'>");
+function toggleMenu() {
+  const m = document.getElementById("menu");
+  m.style.display = m.style.display === "block" ? "none" : "block";
+}
+
+function openImg(src) {
+  window.open(src, "_blank");
 }
 </script>
-
-<div class="footer">
-  &copy; 2025 Ismael Full Stack Website Developer
-</div>
 
 </body>
 </html>
