@@ -1,249 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Ismael Full Stack Website & Shopify store developer </title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ismael Webdeveloper</title>
+<style>
+  /* --- Reset & Body --- */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:sans-serif; }
+  body { transition: background 1s, color 1s; background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fad0c4); background-size: 600% 600%; animation: gradientBG 30s ease infinite; color:#000; }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-    }
+  @keyframes gradientBG {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
 
-    header {
-      background: #020617;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
+  /* --- Navbar --- */
+  nav { position: fixed; top:0; width:100%; background:rgba(255,255,255,0.8); display:flex; justify-content:flex-end; gap:15px; padding:10px 20px; z-index:1000; transition: all 0.3s ease; }
+  nav a { text-decoration:none; color:#0077ff; font-weight:bold; }
+  nav a:hover { color:#0056b3; }
 
-    header.shrink {
-      padding: 5px 0;
-    }
+  /* --- Header --- */
+  header { display:flex; justify-content:center; align-items:center; height:80vh; flex-direction:column; text-align:center; transition: all 0.3s ease; }
+  header h1 { font-size:4em; transition: all 0.3s ease; }
+  marquee { margin-top:10px; padding:5px 10px; background:rgba(255,255,255,0.5); border-radius:10px; color:#000; }
 
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
+  /* --- About Section --- */
+  section { padding:80px 20px; max-width:1200px; margin:auto; }
+  section h1,h2 { margin-bottom:20px; }
+  section p { margin-bottom:15px; line-height:1.5; }
 
-    .main-title {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #1e90ff;
-      text-align: center;
-      margin: 10px 0 20px 0;
-      transition: all 0.3s ease;
-    }
+  /* --- Gallery --- */
+  .gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:20px; }
+  .gallery div { background:rgba(255,255,255,0.7); border-radius:10px; padding:10px; text-align:center; transition: transform 0.3s ease; }
+  .gallery div:hover { transform:scale(1.05); }
+  .gallery img { width:100%; height:auto; border-radius:10px; cursor:pointer; }
 
-    header.shrink .main-title {
-      font-size: 1.4rem;
-      margin: 5px 0;
-    }
+  /* --- Contact --- */
+  .contact { text-align:center; margin-top:50px; }
+  .contact p { font-size:1.2em; }
 
-    .menu {
-      font-size: 28px;
-      cursor: pointer;
-    }
+  /* --- Night/Light Toggle --- */
+  .toggle-btn { position:fixed; bottom:20px; right:20px; padding:10px 20px; background:#0077ff; color:#fff; border:none; border-radius:5px; cursor:pointer; }
 
-    .menu-box {
-      display: none;
-      position: absolute;
-      right: 20px;
-      top: 60px;
-      background: #020617;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 10px;
-    }
-
-    .menu-box a {
-      display: block;
-      color: #e5e7eb;
-      text-decoration: none;
-      padding: 8px;
-    }
-
-    .menu-box a:hover {
-      background: #1e293b;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery div {
-      background: #020617;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-
-    .gallery img {
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .gallery p {
-      padding: 15px;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    video {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-
-    footer {
-      background: #020617;
-      padding: 30px;
-      text-align: center;
-      margin-top: 50px;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-    }
-  </style>
+</style>
 </head>
-
 <body>
 
-<header id="siteHeader">
-  <div class="top-bar">
-    <div></div>
-    <div class="menu" onclick="toggleMenu()">⋮</div>
-  </div>
+<!-- Navbar -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <h1 class="main-title">Ismael Full Stack Website Developer</h1>
-
-  <div class="menu-box" id="menuBox">
-    <a href="#about">About</a>
-    <a href="https://www.upwork.com" target="_blank">Upwork</a>
-    <a href="https://www.fiverr.com" target="_blank">Fiverr</a>
-    <a href="#contact">Contact</a>
-  </div>
+<!-- Header/Home -->
+<header id="home">
+  <h1>Ismael Webdeveloper</h1>
+  <marquee>Building your website with clarity, precision & modern design.</marquee>
 </header>
 
-<section>
-  <div class="gallery">
+<!-- About Section -->
+<section id="about">
+  <h1>Website</h1>
+  <h2>Website Creation Rules</h2>
+  <p>Frontend development, Backend development, Full Stack development (Both Frontend & Backend).</p>
 
-    <div>
-      <img src="images/pexels-kevin-ku-92347-577585.jpg" onclick="openImg(this)">
-      <p><strong>Clear Vision Development</strong><br>
-      Building powerful digital solutions with clarity and precision.</p>
-    </div>
+  <h2>E-commerce</h2>
+  <marquee>Wix. Shopify. WooCommerce. BigCommerce. Magento. PrestaShop.</marquee>
+</section>
 
-    <div>
-      <img src="images/website-9049204_1280-1.jpg" onclick="openImg(this)">
-      <p><strong>Income Growth Systems</strong><br>
-      Websites designed to increase business revenue.</p>
-    </div>
-
-    <div>
-      <img src="images/pexels-fotios-photos-2363482.jpg" onclick="openImg(this)">
-      <p><strong>Big Code Thinking</strong><br>
-      small code resulted in a big project.</p>
-    </div>
-
-    <div>
-      <img src="images/pexels-fotios-photos-16129705.jpg" onclick="openImg(this)">
-      <p><strong>Focused Development</strong><br>
-      Clean, secure, professional coding.</p>
-    </div>
-
-    <div>
-      <img src="images/pexels-negativespace-160107.jpg" onclick="openImg(this)">
-      <p><strong>Clean Code Philosophy</strong><br>
-      Maintainable architecture for long-term success.</p>
-    </div>
-
-    <div>
-      <img src="images/pexels-thepaintedsquare-4200831.jpg" onclick="openImg(this)">
-      <p><strong>Web Innovation</strong><br>
-      Modern UI, animation, and technology.</p>
-    </div>
-
+<!-- Gallery -->
+<section class="gallery">
+  <div>
+    <img src="images/pexels-kevin-ku-92347-577585.jpg" onclick="openImg(this)">
+    <p><strong>Clear Vision Development</strong><br>Building powerful digital solutions with clarity and precision.</p>
+  </div>
+  <div>
+    <img src="images/website-9049204_1280-1.jpg" onclick="openImg(this)">
+    <p><strong>Income Growth Systems</strong><br>Websites designed to increase business revenue.</p>
+  </div>
+  <div>
+    <img src="images/pexels-fotios-photos-2363482.jpg" onclick="openImg(this)">
+    <p><strong>Big Code Thinking</strong><br>Small code results in a big project.</p>
+  </div>
+  <div>
+    <img src="images/pexels-fotios-photos-16129705.jpg" onclick="openImg(this)">
+    <p><strong>Focused Development</strong><br>Clean, secure, professional coding.</p>
+  </div>
+  <div>
+    <img src="images/pexels-negativespace-160107.jpg" onclick="openImg(this)">
+    <p><strong>Clean Code Philosophy</strong><br>Maintainable architecture for long-term success.</p>
+  </div>
+  <div>
+    <img src="images/pexels-thepaintedsquare-4200831.jpg" onclick="openImg(this)">
+    <p><strong>Web Innovation</strong><br>Modern UI, animation, and technology.</p>
   </div>
 </section>
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    I am <strong>Ismael</strong>, a professional <b>Full Stack Website Developer</b>
-    skilled in <b>HTML5, CSS3, JavaScript (ES6+)</b>, <b>React</b>,
-    <b>Node.js, Express</b>, <b>MongoDB</b>,
-    <b>3D animations (Three.js)</b> and <b>AI animations</b>.
-  </p>
-
-  <video controls>
-    <source src="images/video1.mp4" type="video/mp4">
-  </video>
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <p>📞 Phone: 2517 03706520</p>
+<p> 📞 phone:2519 54539619
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>
-    📧 Ismaelabdulhakim54@gmail.com<br>
-    📞 2519 54 53 96 19 / 2519 11 46 41 68
-  </p>
-</section>
-
-<footer>
-  © 2026 Ismael — Full Stack Website Developer
-</footer>
-
-<div class="modal" id="modal" onclick="closeImg()">
-  <img id="modalImg">
-</div>
+<!-- Night/Light Toggle -->
+<button class="toggle-btn" onclick="toggleMode()">🌙 / ☀️</button>
 
 <script>
-  function toggleMenu() {
-    const m = document.getElementById("menuBox");
-    m.style.display = m.style.display === "block" ? "none" : "block";
-  }
-
-  function openImg(img) {
-    document.getElementById("modal").style.display = "flex";
-    document.getElementById("modalImg").src = img.src;
-  }
-
-  function closeImg() {
-    document.getElementById("modal").style.display = "none";
-  }
-
-  window.addEventListener("scroll", () => {
-    const header = document.getElementById("siteHeader");
-    if (window.scrollY > 80) {
-      header.classList.add("shrink");
+  // Night/Light mode
+  function toggleMode() {
+    if(document.body.style.backgroundColor === 'black'){
+      document.body.style.backgroundColor = '';
+      document.body.style.color = '';
     } else {
-      header.classList.remove("shrink");
+      document.body.style.backgroundColor = 'black';
+      document.body.style.color = 'white';
+    }
+  }
+
+  // Open image in new window
+  function openImg(img) {
+    window.open(img.src, '_blank');
+  }
+
+  // Header shrink on scroll
+  window.addEventListener('scroll', function(){
+    const header = document.querySelector('header h1');
+    if(window.scrollY > 50){
+      header.style.fontSize = '2em';
+    } else {
+      header.style.fontSize = '4em';
     }
   });
 </script>
