@@ -4,134 +4,233 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ismael Webdeveloper</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-  /* --- Reset & Body --- */
-  * { margin:0; padding:0; box-sizing:border-box; font-family:sans-serif; }
-  body { transition: background 1s, color 1s; background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fad0c4); background-size: 600% 600%; animation: gradientBG 30s ease infinite; color:#000; }
-
-  @keyframes gradientBG {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
+  :root {
+    --bg1: #ff6b6b;
+    --bg2: #f7d794;
+    --text-color: #ffffff;
+    --nav-bg: rgba(0,0,0,0.6);
+    --nav-color: #ffffff;
   }
 
-  /* --- Navbar --- */
-  nav { position: fixed; top:0; width:100%; background:rgba(255,255,255,0.8); display:flex; justify-content:flex-end; gap:15px; padding:10px 20px; z-index:1000; transition: all 0.3s ease; }
-  nav a { text-decoration:none; color:#0077ff; font-weight:bold; }
-  nav a:hover { color:#0056b3; }
+  body {
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+    transition: background 1s, color 1s;
+    background: linear-gradient(45deg, #ff6b6b, #f7d794, #1dd1a1, #54a0ff);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    color: var(--text-color);
+  }
 
-  /* --- Header --- */
-  header { display:flex; justify-content:center; align-items:center; height:80vh; flex-direction:column; text-align:center; transition: all 0.3s ease; }
-  header h1 { font-size:4em; transition: all 0.3s ease; }
-  marquee { margin-top:10px; padding:5px 10px; background:rgba(255,255,255,0.5); border-radius:10px; color:#000; }
+  @keyframes gradientBG {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
 
-  /* --- About Section --- */
-  section { padding:80px 20px; max-width:1200px; margin:auto; }
-  section h1,h2 { margin-bottom:20px; }
-  section p { margin-bottom:15px; line-height:1.5; }
+  nav {
+    position: fixed;
+    top:0; left:0; width:100%;
+    background: var(--nav-bg);
+    display:flex;
+    justify-content:flex-end;
+    padding:10px 20px;
+    z-index:100;
+    transition: background 0.5s;
+  }
 
-  /* --- Gallery --- */
-  .gallery { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap:20px; }
-  .gallery div { background:rgba(255,255,255,0.7); border-radius:10px; padding:10px; text-align:center; transition: transform 0.3s ease; }
-  .gallery div:hover { transform:scale(1.05); }
-  .gallery img { width:100%; height:auto; border-radius:10px; cursor:pointer; }
+  nav a {
+    color: var(--nav-color);
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:600;
+  }
 
-  /* --- Contact --- */
-  .contact { text-align:center; margin-top:50px; }
-  .contact p { font-size:1.2em; }
+  nav a:hover { text-decoration:underline; }
 
-  /* --- Night/Light Toggle --- */
-  .toggle-btn { position:fixed; bottom:20px; right:20px; padding:10px 20px; background:#0077ff; color:#fff; border:none; border-radius:5px; cursor:pointer; }
+  .section {
+    padding:100px 20px 60px 20px;
+    min-height:100vh;
+  }
 
+  .title-box {
+    text-align:center;
+    font-size:4rem;
+    font-weight:800;
+    margin-bottom:20px;
+    transition: font-size 0.3s;
+  }
+
+  marquee {
+    font-size:1.2rem;
+    font-weight:600;
+    color:#fff;
+  }
+
+  .gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:40px;
+  }
+
+  .gallery img {
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+    transition: transform 0.3s;
+  }
+
+  .gallery img:hover { transform:scale(1.05); }
+
+  .gallery p { margin-top:8px; font-size:0.9rem; }
+
+  .light-mode {
+    --bg1:#ffffff;
+    --bg2:#e0e0e0;
+    --text-color:#222;
+    --nav-bg:rgba(255,255,255,0.8);
+    --nav-color:#222;
+  }
+
+  .mode-toggle {
+    position:fixed;
+    bottom:20px; right:20px;
+    background:#222;
+    color:#fff;
+    padding:10px 15px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:600;
+    z-index:100;
+  }
+
+  h1,h2,h3 { text-align:center; margin:20px 0; }
+
+  ul { list-style:none; padding:0; text-align:center; }
+
+  ul li { display:inline-block; margin:10px 20px; font-weight:600; }
+
+  .contact p { font-size:1.2rem; text-align:center; margin:10px; }
+
+  /* Image modal */
+  #imgModal {
+    display:none;
+    position:fixed;
+    top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:200;
+  }
+
+  #imgModal img {
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+  }
+
+  #imgModal span {
+    position:absolute;
+    top:20px; right:30px;
+    font-size:2rem;
+    color:#fff;
+    cursor:pointer;
+  }
 </style>
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- Navigation -->
 <nav>
   <a href="#home">Home</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<!-- Header/Home -->
-<header id="home">
-  <h1>Ismael Webdeveloper</h1>
-  <marquee>Building your website with clarity, precision & modern design.</marquee>
-</header>
+<!-- Home Section -->
+<section id="home" class="section">
+  <div class="title-box">Ismael Webdeveloper</div>
+  <marquee behavior="scroll" direction="left">Welcome! I create modern websites with animations, full stack solutions, and e-commerce stores.</marquee>
 
-<!-- About Section -->
-<section id="about">
-  <h1>Website</h1>
-  <h2>Website Creation Rules</h2>
-  <p>Frontend development, Backend development, Full Stack development (Both Frontend & Backend).</p>
-
-  <h2>E-commerce</h2>
-  <marquee>Wix. Shopify. WooCommerce. BigCommerce. Magento. PrestaShop.</marquee>
+  <div class="gallery">
+    <div>
+      <img src="images/pexels-kevin-ku-92347-577585.jpg" onclick="openImg(this)">
+      <p><strong>Clear Vision Development</strong><br>Building powerful digital solutions.</p>
+    </div>
+    <div>
+      <img src="images/website-9049204_1280-1.jpg" onclick="openImg(this)">
+      <p><strong>Income Growth Systems</strong><br>Websites designed to increase revenue.</p>
+    </div>
+    <div>
+      <img src="images/pexels-fotios-photos-2363482.jpg" onclick="openImg(this)">
+      <p><strong>Big Code Thinking</strong><br>Small code, big results.</p>
+    </div>
+    <div>
+      <img src="images/pexels-fotios-photos-16129705.jpg" onclick="openImg(this)">
+      <p><strong>Focused Development</strong><br>Clean, secure, professional coding.</p>
+    </div>
+    <div>
+      <img src="images/pexels-negativespace-160107.jpg" onclick="openImg(this)">
+      <p><strong>Clean Code Philosophy</strong><br>Maintainable architecture.</p>
+    </div>
+    <div>
+      <img src="images/pexels-thepaintedsquare-4200831.jpg" onclick="openImg(this)">
+      <p><strong>Web Innovation</strong><br>Modern UI and animation.</p>
+    </div>
+  </div>
 </section>
 
-<!-- Gallery -->
-<section class="gallery">
-  <div>
-    <img src="images/pexels-kevin-ku-92347-577585.jpg" onclick="openImg(this)">
-    <p><strong>Clear Vision Development</strong><br>Building powerful digital solutions with clarity and precision.</p>
-  </div>
-  <div>
-    <img src="images/website-9049204_1280-1.jpg" onclick="openImg(this)">
-    <p><strong>Income Growth Systems</strong><br>Websites designed to increase business revenue.</p>
-  </div>
-  <div>
-    <img src="images/pexels-fotios-photos-2363482.jpg" onclick="openImg(this)">
-    <p><strong>Big Code Thinking</strong><br>Small code results in a big project.</p>
-  </div>
-  <div>
-    <img src="images/pexels-fotios-photos-16129705.jpg" onclick="openImg(this)">
-    <p><strong>Focused Development</strong><br>Clean, secure, professional coding.</p>
-  </div>
-  <div>
-    <img src="images/pexels-negativespace-160107.jpg" onclick="openImg(this)">
-    <p><strong>Clean Code Philosophy</strong><br>Maintainable architecture for long-term success.</p>
-  </div>
-  <div>
-    <img src="images/pexels-thepaintedsquare-4200831.jpg" onclick="openImg(this)">
-    <p><strong>Web Innovation</strong><br>Modern UI, animation, and technology.</p>
-  </div>
+<!-- About Section -->
+<section id="about" class="section">
+  <h4>About Me</h4>
+  <h2>Website Creation Rules & Skills</h2>
+  <ul>
+    <li>Frontend: HTML, CSS3, JavaScript, React, Tailwind</li>
+    <li>Backend: Node.js, PHP, Python</li>
+    <li>Full Stack: Frontend + Backend integration</li>
+  </ul>
+  <h2>E-Commerce Skills</h2>
+  <marquee behavior="scroll" direction="left">[Wix]  [ Shopify]  [ WooCommerce] [ BigCommerce ] [ Magento ]   [ OpenCart ]</marquee>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="contact">
-  <h2>Contact Me</h2>
-  <p>📞 Phone: 2517 03706520</p>
-<p> 📞 phone:2519 54539619
+<section id="contact" class="section contact">
+  <h1>Contact Me</h1>
+  <p>📞 Phone: 2519 54539619</p>
+ <p>📞      :2517 03706520</p>
+  <button onclick="window.open('https://wa.me/0911464168','_blank')">WhatsApp Me</button>
 </section>
 
-<!-- Night/Light Toggle -->
-<button class="toggle-btn" onclick="toggleMode()">🌙 / ☀️</button>
+<!-- Image Modal -->
+<div id="imgModal" onclick="this.style.display='none'">
+  <span onclick="document.getElementById('imgModal').style.display='none'">&times;</span>
+  <img id="modalImg">
+</div>
+
+<!-- Light/Dark Toggle -->
+<button class="mode-toggle" onclick="toggleMode()">🌙 / ☀️</button>
 
 <script>
-  // Night/Light mode
-  function toggleMode() {
-    if(document.body.style.backgroundColor === 'black'){
-      document.body.style.backgroundColor = '';
-      document.body.style.color = '';
-    } else {
-      document.body.style.backgroundColor = 'black';
-      document.body.style.color = 'white';
-    }
-  }
-
-  // Open image in new window
   function openImg(img) {
-    window.open(img.src, '_blank');
+    document.getElementById('modalImg').src = img.src;
+    document.getElementById('imgModal').style.display='flex';
   }
 
-  // Header shrink on scroll
-  window.addEventListener('scroll', function(){
-    const header = document.querySelector('header h1');
+  function toggleMode() {
+    document.body.classList.toggle('light-mode');
+  }
+
+  // Shrink header on scroll
+  window.addEventListener('scroll', () => {
+    const title = document.querySelector('.title-box');
     if(window.scrollY > 50){
-      header.style.fontSize = '2em';
+      title.style.fontSize = '2.5rem';
     } else {
-      header.style.fontSize = '4em';
+      title.style.fontSize = '4rem';
     }
   });
 </script>
