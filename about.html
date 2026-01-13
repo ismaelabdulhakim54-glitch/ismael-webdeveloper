@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About - Ismael Webdeveloper</title>
+<style>
+body {margin:0; font-family:Arial,sans-serif; transition: background 1s, color 1s;}
+header {display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:rgba(0,0,0,0.3); position:fixed; width:100%; top:0; z-index:100;}
+header a {color:white; text-decoration:none; margin:0 10px; font-weight:bold;}
+body.dark-mode {background:#222 !important; color:white !important;}
+section {padding:80px 20px;}
+h1 {font-size:2.5em;}
+h2 {font-size:1.5em; margin-top:20px;}
+marquee {font-weight:bold; color:#333; font-size:1.2em;}
+.mode-btn {padding:5px 10px; cursor:pointer; border:none; border-radius:5px; font-weight:bold;}
+</style>
+</head>
+<body class="rainbow-bg">
+
+<header>
+  <div class="logo">Ismael Webdeveloper</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <button class="mode-btn" onclick="toggleMode()">🌙</button>
+  </nav>
+</header>
+
+<section>
+  <h1>About Me</h1>
+  <h2>Website Creation Rule</h2>
+  <ul>
+    <li>Frontend Development</li>
+    <li>Backend Development</li>
+    <li>Full Stack (Frontend + Backend)</li>
+  </ul>
+
+  <h2>E-commerce Tools</h2>
+  <marquee behavior="scroll" direction="left">
+  <h3>  Wix • Shopify • WordPress • WooCommerce • Squarespace • Magento • PrestaShop</h3>
+  </marquee>
+
+ 
+ <h2>Skills & Languages</h2>
+  <ul>
+    <li>HTML5, CSS3, JavaScript, TypeScript</li>
+    <li>React, Vue, Angular</li>
+    <li>Node.js, Express, Python, PHP</li>
+    <li>MySQL, MongoDB, Firebase</li>
+    <li>Animation: CSS, Three.js, Lottie, AI-generated</li>
+  </ul>
+</section>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("dark-mode");
+}
+</script>
+
+</body>
+</html>
