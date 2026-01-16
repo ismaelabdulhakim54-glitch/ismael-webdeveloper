@@ -3,294 +3,199 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ismael Full Stack Website Developer</title>
-
-<!-- Three.js -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
-
+<title>Ismael Webdeveloper - Home</title>
 <style>
-/* ===== RESET ===== */
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+  body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    transition: background 1s, color 1s;
+  }
 
-/* ===== BACKGROUND ANIMATION ===== */
-body {
-  min-height:100vh;
-  background: linear-gradient(-45deg, #1e3c72, #2a5298, #6a11cb, #2575fc);
-  background-size: 400% 400%;
-  animation: gradientBG 20s ease infinite;
-  color:#fff;
-}
-@keyframes gradientBG {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
-}
+  /* Background animation */
+  @keyframes rainbow {
+    0%{background-color:#ff6b6b;}
+    20%{background-color:#feca57;}
+    40%{background-color:#48dbfb;}
+    60%{background-color:#1dd1a1;}
+    80%{background-color:#5f27cd;}
+    100%{background-color:#ff6b6b;}
+  }
+  body.rainbow-bg {
+    animation: rainbow 20s infinite;
+  }
 
-/* ===== DARK MODE ===== */
-body.light {
-  background:#f4f4f4;
-  color:#111;
-}
-body.light section { background:#fff; color:#111; }
+  header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    width:100%;
+    top:0;
+    z-index: 100;
+  }
 
-/* ===== HEADER ===== */
-header {
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:1000;
-}
-header h1 {
-  font-size:28px;
-  color:#4da3ff;
-}
-nav a {
-  color:#fff;
-  margin:0 10px;
-  text-decoration:none;
-  font-weight:bold;
-}
-.toggle {
-  cursor:pointer;
-  font-size:20px;
-}
+  header a {
+    color: white;
+    text-decoration:none;
+    margin: 0 10px;
+    font-weight:bold;
+  }
 
-/* ===== SECTIONS ===== */
-section {
-  padding:100px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-h2 {
-  margin-bottom:20px;
-  font-size:32px;
-}
+  .dark-mode {
+    background:#222 !important;
+    color:white !important;
+  }
 
-/* ===== REVEAL ANIMATION ===== */
-.reveal {
-  opacity:0;
-  transform:translateY(40px);
-  transition:all 0.8s ease;
-}
-.reveal.active {
-  opacity:1;
-  transform:translateY(0);
-}
+  .hero {
+    margin-top:60px;
+    text-align:center;
+    padding:50px 20px;
+  }
 
-/* ===== GALLERY ===== */
-.gallery {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.gallery div {
-  background:rgba(0,0,0,0.4);
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-}
-.gallery img {
-  width:100%;
-  border-radius:10px;
-  cursor:pointer;
-  transition:0.4s;
-}
-.gallery img:hover {
-  transform:scale(1.05);
-}
+  .hero h1 {
+    font-size:3em;
+    margin-bottom:20px;
+    transition: font-size 0.3s;
+  }
 
-/* ===== MODAL ===== */
-#modal {
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-}
-#modal img {
-  max-width:90%;
-  max-height:90%;
-}
+  marquee {
+    font-size: 1.2em;
+    font-weight:bold;
+    color:#fff;
+  }
 
-/* ===== 3D ===== */
-#three-container {
-  width:100%;
-  height:300px;
-}
+  .gallery {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
+  }
 
-/* ===== CONTACT ===== */
-form {
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-input, textarea, button {
-  padding:12px;
-  border:none;
-  border-radius:5px;
-}
-button {
-  background:#4da3ff;
-  color:#fff;
-  font-size:16px;
-  cursor:pointer;
-}
+  .gallery div {
+    width:300px;
+    text-align:center;
+    background: rgba(255,255,255,0.1);
+    padding:10px;
+    border-radius:10px;
+    transition: transform 0.3s;
+  }
 
-/* ===== WHATSAPP ===== */
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:15px;
-  border-radius:50%;
-  font-size:24px;
-  text-decoration:none;
-}
+  .gallery div:hover {
+    transform: scale(1.05);
+  }
+
+  .gallery img {
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  /* Image modal */
+  #imgModal {
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:200;
+  }
+  #imgModal img {
+    max-width:90%;
+    max-height:90%;
+  }
+  #imgModal span {
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:3em;
+    color:white;
+    cursor:pointer;
+  }
+
+  .mode-btn {
+    padding:5px 10px;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+  }
+
 </style>
 </head>
-
-<body>
+<body class="rainbow-bg">
 
 <header>
-  <h1>Ismael  Website Developer</h1>
+  <div class="logo">Ismael Webdeveloper</div>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <button class="mode-btn" onclick="toggleMode()">🌙</button>
   </nav>
-  <div class="toggle" onclick="toggleMode()">🌙</div>
 </header>
 
-<!-- HOME -->
-<section id="home" class="reveal">
-<h2>Welcome</h2>
-<marquee>Ismael Web Developer — Modern • 3D • AI • Full Stack</marquee>
+<section class="hero">
+  <h1>Ismael Webdeveloper</h1>
+  <marquee behavior="scroll" direction="left">Building modern websites | Full stack developer | E-commerce & more</marquee>
+</section>
 
-<div class="gallery">
+<section class="gallery">
+
   <div>
     <img src="images/pexels-kevin-ku-92347-577585.jpg" onclick="openImg(this)">
-    <p><strong>Clear Vision Development</strong></p>
+    <p><strong>Clear Vision Development</strong><br>Building powerful digital solutions with clarity and precision.</p>
   </div>
+
   <div>
     <img src="images/website-9049204_1280-1.jpg" onclick="openImg(this)">
-    <p><strong>Income Growth Systems</strong></p>
+    <p><strong>Income Growth Systems</strong><br>Websites designed to increase business revenue.</p>
   </div>
+
   <div>
     <img src="images/pexels-fotios-photos-2363482.jpg" onclick="openImg(this)">
-    <p><strong>Big Code Thinking</strong>small code gives big project</p>
+    <p><strong>Big Code Thinking</strong><br>Small code results in big projects.</p>
   </div>
+
   <div>
     <img src="images/pexels-fotios-photos-16129705.jpg" onclick="openImg(this)">
-    <p><strong>Focused Development</strong></p>
+    <p><strong>Focused Development</strong><br>Clean, secure, professional coding.</p>
   </div>
+
   <div>
     <img src="images/pexels-negativespace-160107.jpg" onclick="openImg(this)">
-    <p><strong>Clean Code Philosophy</strong></p>
+    <p><strong>Clean Code Philosophy</strong><br>Maintainable architecture for long-term success.</p>
   </div>
+
   <div>
     <img src="images/pexels-thepaintedsquare-4200831.jpg" onclick="openImg(this)">
-    <p><strong>Web Innovation</strong></p>
+    <p><strong>Web Innovation</strong><br>Modern UI, animation, and technology.</p>
   </div>
-</div>
+
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="reveal">
-<h2>About Me</h2>
-<p> build modern, fast, secure websites and applications.</p>
-
-<h3>Skills</h3>
-<ul>
-<li>HTML5, CSS3, JavaScript</li>
-<li>React, Node.js</li>
-<li>Frontend & Backend (Full Stack)</li>
-<li>3D & AI Animation</li>
-</ul>
-
-<h3>E-commerce</h3>
-<marquee>Shopify • Wix • WooCommerce • Magento</marquee>
-
-<div id="three-container"></div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="reveal">
-<h2>Contact</h2>
-
-<form name="contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="contact">
-  <input type="text" name="name" placeholder="Your Name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message"></textarea>
-  <button type="submit">Send Message</button>
-</form>
-
-<p>📞 +251 954539619</p>
-<p>📧 Ismaelabdulhakim54@gmail.com</p>
-</section>
-
-<!-- MODAL -->
-<div id="modal" onclick="closeImg()">
+<!-- Image modal -->
+<div id="imgModal" onclick="closeImg()">
+  <span>&times;</span>
   <img id="modalImg">
 </div>
 
-<a class="whatsapp" href="https://wa.me/251954539619">💬</a>
-
 <script>
-/* Reveal */
-window.addEventListener("scroll",()=>{
- document.querySelectorAll(".reveal").forEach(el=>{
-  if(el.getBoundingClientRect().top < window.innerHeight-100)
-   el.classList.add("active");
- });
-});
-
-/* Modal */
 function openImg(img){
- document.getElementById("modal").style.display="flex";
- document.getElementById("modalImg").src=img.src;
+  document.getElementById("modalImg").src = img.src;
+  document.getElementById("imgModal").style.display="flex";
 }
 function closeImg(){
- document.getElementById("modal").style.display="none";
+  document.getElementById("imgModal").style.display="none";
 }
 
-/* Dark mode */
 function toggleMode(){
- document.body.classList.toggle("light");
+  document.body.classList.toggle("dark-mode");
 }
-
-/* Three.js */
-const scene=new THREE.Scene();
-const camera=new THREE.PerspectiveCamera(75,window.innerWidth/300,0.1,1000);
-const renderer=new THREE.WebGLRenderer({alpha:true});
-renderer.setSize(window.innerWidth,300);
-document.getElementById("three-container").appendChild(renderer.domElement);
-const geometry=new THREE.TorusKnotGeometry();
-const material=new THREE.MeshStandardMaterial({color:0x4da3ff});
-const mesh=new THREE.Mesh(geometry,material);
-scene.add(mesh);
-const light=new THREE.PointLight(0xffffff,1);
-light.position.set(10,10,10);
-scene.add(light);
-camera.position.z=5;
-function animate(){
- requestAnimationFrame(animate);
- mesh.rotation.x+=0.01;
- mesh.rotation.y+=0.01;
- renderer.render(scene,camera);
-}
-animate();
 </script>
 
 </body>
