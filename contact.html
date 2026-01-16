@@ -109,24 +109,32 @@
     <p>Send your message — we will reply fast 🚀</p>
 
     <!-- NETLIFY FORM -->
-     <form
+<form
   name="contact"
   method="POST"
   data-netlify="true"
   action="/thank-you.html"
 >
-      <input type="hidden" name="form-name" value="contact">
+  <!-- REQUIRED FOR NETLIFY -->
+  <input type="hidden" name="form-name" value="contact">
 
-      <input type="text" name="name" placeholder="Your Name" required>
+  <label>
+    Your Name
+    <input type="text" name="name" required>
+  </label>
 
-      <input type="email" name="email" placeholder="Your Email (optional)">
+  <label>
+    Email or Phone
+    <input type="text" name="contact" required>
+  </label>
 
-      <input type="tel" name="phone" placeholder="Phone / WhatsApp (optional)">
+  <label>
+    Message
+    <textarea name="message" rows="5" required></textarea>
+  </label>
 
-      <textarea name="message" placeholder="Write your message here..." required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
+  <button type="submit">Send Message</button>
+</form>
 
     <div class="info">
       📞 Phone: <strong>2519 54539619</strong><br>
