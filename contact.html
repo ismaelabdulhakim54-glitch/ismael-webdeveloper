@@ -1,45 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - Ismael Webdeveloper</title>
-<style>
-body {margin:0; font-family:Arial,sans-serif; transition: background 1s, color 1s;}
-header {display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:rgba(0,0,0,0.3); position:fixed; width:100%; top:0; z-index:100;}
-header a {color:white; text-decoration:none; margin:0 10px; font-weight:bold;}
-body.dark-mode {background:#222 !important; color:white !important;}
-section {padding:80px 20px;}
-h1 {font-size:2.5em;}
-.mode-btn {padding:5px 10px; cursor:pointer; border:none; border-radius:5px; font-weight:bold;}
-.contact-info {font-size:1.3em; margin-top:20px;}
-</style>
+  <meta charset="UTF-8">
+  <title>Contact | Ismael WebDeveloper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ANIMATED BACKGROUND */
+    body {
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
+      background-size: 400% 400%;
+      animation: bgMove 15s ease infinite;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* CONTAINER */
+    .contact-box {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    /* FORM */
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #00e5ff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00bcd4;
+    }
+
+    /* FOOTER INFO */
+    .info {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    a {
+      color: #00e5ff;
+      text-decoration: none;
+    }
+  </style>
 </head>
-<body class="rainbow-bg">
 
-<header>
-  <div class="logo">Ismael Webdeveloper</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <button class="mode-btn" onclick="toggleMode()">🌙</button>
-  </nav>
-</header>
+<body>
 
-<section>
-  <h1>Contact Me</h1>
-  <div class="contact-info">
-    📞 Phone: 2519 54539619
-   📞  phone: 2517 03706520
+  <div class="contact-box">
+    <h1>Contact Me</h1>
+    <p>Send your message — I will reply fast 🚀</p>
+
+    <!-- NETLIFY FORM -->
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input type="email" name="email" placeholder="Your Email (optional)">
+
+      <input type="tel" name="phone" placeholder="Phone / WhatsApp (optional)">
+
+      <textarea name="message" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="info">
+      📞 Phone: <strong>2519 54539619</strong><br>
+      🌐 <a href="index.html">Back to Home</a>
+    </div>
   </div>
-</section>
-
-<script>
-function toggleMode(){
-  document.body.classList.toggle("dark-mode");
-}
-</script>
 
 </body>
 </html>
