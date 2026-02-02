@@ -1,7 +1,6 @@
 {
-  "name": "ismael-website",
+  "name": "ismael-webdeveloper",
   "version": "1.0.0",
-  "description": "Ismael Full Stack Website Developer",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
