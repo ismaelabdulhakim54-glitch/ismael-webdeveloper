@@ -2,11 +2,16 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Serve static files (HTML, CSS, JS, images)
+// read form data
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// serve static files
 app.use(express.static(__dirname));
 
-// Routes
+// pages
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -19,8 +24,14 @@ app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, 'contact.html'));
 });
 
-// Start server
-const PORT = process.env.PORT || 3000;
+// FORM HANDLER
+app.post('/contact', (req, res) => {
+  console.log('NEW MESSAGE 🔥');
+  console.log(req.body);
+
+  res.redirect('/thank-you.html');
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
