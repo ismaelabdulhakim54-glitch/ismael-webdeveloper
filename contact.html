@@ -2,137 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact | Ismael WebDeveloper</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    /* ANIMATED BACKGROUND */
-    body {
-      min-height: 100vh;
-      background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
-      background-size: 400% 400%;
-      animation: bgMove 15s ease infinite;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    @keyframes bgMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* CONTAINER */
-    .contact-box {
-      background: rgba(0,0,0,0.6);
-      padding: 30px;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    p {
-      text-align: center;
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-
-    /* FORM */
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      font-size: 14px;
-    }
-
-    textarea {
-      resize: none;
-      height: 120px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background: #00e5ff;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #00bcd4;
-    }
-
-    /* FOOTER INFO */
-    .info {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 13px;
-      opacity: 0.85;
-    }
-
-    a {
-      color: #00e5ff;
-      text-decoration: none;
-    }
-  </style>
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
   <div class="contact-box">
     <h1>Contact us</h1>
     <p>Send your message — we will reply fast 🚀</p>
 
-<form method="POST" action="/contact">
-  <label>
-    Your Name
-    <input type="text" name="name" required>
-  </label>
+    <form action="/contact" method="POST">
+      <label>
+        Your Name
+        <input type="text" name="name" required>
+      </label>
 
-  <label>
-    Email or Phone
-    <input type="text" name="contact" required>
-  </label>
+      <label>
+        Email or Phone
+        <input type="text" name="contact" required>
+      </label>
 
-  <label>
-    Message
-    <textarea name="message" rows="5" required></textarea>
-  </label>
+      <label>
+        Message
+        <textarea name="message" rows="5" required></textarea>
+      </label>
 
-  <button type="submit">Send Message</button>
-</form>
-
-    <div class="info">
-      📞 Phone: <strong>2519 54539619</strong><br>
-<br>
-      🌐 <a href="index.html">Back to Home</a>
-    </div>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
-
 </body>
 </html>

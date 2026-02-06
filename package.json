@@ -6,7 +6,21 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "dotenv": "^17.2.4",
     "express": "^4.22.1",
     "nodemailer": "^7.0.13"
-  }
+  },
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismaelabdulhakim54-glitch/ismael-webdeveloper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ismaelabdulhakim54-glitch/ismael-webdeveloper/issues"
+  },
+  "homepage": "https://github.com/ismaelabdulhakim54-glitch/ismael-webdeveloper#readme"
 }
