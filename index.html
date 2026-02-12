@@ -126,9 +126,11 @@
   }
 
 </style>
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0f172a">
 </head>
 <body class="rainbow-bg">
-
 <header>
   <div class="logo">Ismael Webdeveloper</div>
   <nav>
@@ -197,6 +199,12 @@ function toggleMode(){
   document.body.classList.toggle("dark-mode");
 }
 </script>
-
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.log("Service Worker registration failed:", err));
+}
+</script>
 </body>
 </html>
