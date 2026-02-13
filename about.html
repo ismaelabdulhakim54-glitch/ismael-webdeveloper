@@ -1,22 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About - Ismael Webdeveloper</title>
+<title>About | Ismael Web Developer</title>
+
 <style>
-body {margin:0; font-family:Arial,sans-serif; transition: background 1s, color 1s;}
-header {display:flex; justify-content:space-between; align-items:center; padding:10px 20px; background:rgba(0,0,0,0.3); position:fixed; width:100%; top:0; z-index:100;}
-header a {color:white; text-decoration:none; margin:0 10px; font-weight:bold;}
-body.dark-mode {background:#222 !important; color:white !important;}
-section {padding:80px 20px;}
-h1 {font-size:2.5em;}
-h2 {font-size:1.5em; margin-top:20px;}
-marquee {font-weight:bold; color:#333; font-size:1.2em;}
-.mode-btn {padding:5px 10px; cursor:pointer; border:none; border-radius:5px; font-weight:bold;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  overflow:hidden;
+  background:black;
+  color:white;
+  transition:0.4s;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:5;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#00ffcc;
+}
+
+nav a{
+  margin:0 15px;
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#00ffcc;
+}
+
+/* MODE BUTTON */
+.mode-btn{
+  background:#00ffcc;
+  border:none;
+  padding:8px 14px;
+  border-radius:50px;
+  cursor:pointer;
+  font-size:16px;
+  transition:0.3s;
+}
+
+.mode-btn:hover{
+  transform:scale(1.1);
+  background:white;
+}
+
+/* CONTENT */
+.container{
+  position:absolute;
+  top:55%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  text-align:center;
+  z-index:2;
+  width:90%;
+  max-width:700px;
+}
+
+.card{
+  background:rgba(0,0,0,0.6);
+  padding:40px;
+  border-radius:20px;
+  backdrop-filter: blur(10px);
+  box-shadow:0 0 40px rgba(0,255,200,0.4);
+  transition:0.4s;
+}
+
+h1{
+  color:#00ffcc;
+  margin-bottom:20px;
+}
+
+p{
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+button.back{
+  margin-top:20px;
+  padding:10px 25px;
+  border:none;
+  border-radius:30px;
+  background:#00ffcc;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button.back:hover{
+  background:white;
+  transform:scale(1.1);
+}
+
+/* LIGHT MODE */
+.light-mode{
+  background:white !important;
+  color:black !important;
+}
+
+.light-mode .card{
+  background:rgba(255,255,255,0.9);
+  color:black;
+}
+
+.light-mode nav a{
+  color:black;
+}
+
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1;
+}
 </style>
 </head>
-<body class="rainbow-bg">
+
+<body>
 
 <header>
   <div class="logo">Ismael Webdeveloper</div>
@@ -28,35 +155,112 @@ marquee {font-weight:bold; color:#333; font-size:1.2em;}
   </nav>
 </header>
 
-<section>
-  <h1>About Me</h1>
-  <h2>Website Creation Rule</h2>
-  <ul>
-    <li>Frontend Development</li>
-    <li>Backend Development</li>
-    <li>Full Stack (Frontend + Backend)</li>
-  </ul>
+<div class="container">
+  <div class="card">
+    <h1>🌌 About </h1>
 
-  <h2>E-commerce Tools</h2>
-  <marquee behavior="scroll" direction="left">
-  <h3>  Wix • Shopify • WordPress • WooCommerce • Squarespace • Magento • PrestaShop</h3>
-  </marquee>
+    <p>Hello 👋 <strong>welcom to ismael</strong>, a Full-Stack Developer.</p>
 
- 
- <h2>Skills & Languages</h2>
-  <ul>
-    <li>HTML5, CSS3, JavaScript, TypeScript</li>
-    <li>React, Vue, Angular</li>
-    <li>Node.js, Express, Python, PHP</li>
-    <li>MySQL, MongoDB, Firebase</li>
-    <li>Animation: CSS, Three.js, Lottie, AI-generated</li>
-  </ul>
-</section>
+    <p><strong>Frontend Development:</strong><br>
+     create responsive and interactive user interfaces using HTML, CSS, and JavaScript.
+    Frontend is important because it controls user experience, design, performance, and accessibility.</p>
+
+    <p><strong>Backend Development:</strong><br>
+     work with server logic, APIs, authentication, and databases.
+    Backend is important because it manages data, security, business rules, and scalability.</p>
+
+    <p><strong>Full-Stack Development:</strong><br>
+    Combining frontend and backend allows me to build complete web applications —
+    from UI design to server deployment.</p>
+
+<p><strong>E-Commerce Development:</strong><br>
+I build and customize online stores using platforms like Wix, Shopify, and other modern e-commerce systems.
+This includes product management, payment gateway integration, order systems, and optimized user shopping experiences.</p>
+
+<p>My goal is to deliver powerful, secure, and user-friendly digital solutions for businesses and individuals.</p>
+
+    <button class="back" onclick="location.href='index.html'">⬅ Back Home</button>
+  </div>
+</div>
+
+<!-- THREE JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <script>
+// DARK / LIGHT MODE
 function toggleMode(){
-  document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle("light-mode");
+  const btn = document.querySelector(".mode-btn");
+
+  if(document.body.classList.contains("light-mode")){
+    btn.textContent = "☀️";
+  } else {
+    btn.textContent = "🌙";
+  }
 }
+
+// 3D GALAXY
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({alpha:true});
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const starsGeometry = new THREE.BufferGeometry();
+const starsCount = 6000;
+const posArray = new Float32Array(starsCount * 3);
+
+for(let i = 0; i < starsCount * 3; i++){
+  posArray[i] = (Math.random() - 0.5) * 1000;
+}
+
+starsGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+const starsMaterial = new THREE.PointsMaterial({
+  size: 0.7,
+  color: 0xffffff
+});
+
+const starsMesh = new THREE.Points(starsGeometry, starsMaterial);
+scene.add(starsMesh);
+
+camera.position.z = 5;
+
+// Shooting Star
+function createShootingStar(){
+  const geometry = new THREE.SphereGeometry(0.5, 16, 16);
+  const material = new THREE.MeshBasicMaterial({color:0x00ffcc});
+  const star = new THREE.Mesh(geometry, material);
+
+  star.position.set(-200, Math.random()*100-50, -200);
+  scene.add(star);
+
+  const interval = setInterval(()=>{
+    star.position.x += 5;
+    star.position.y -= 1;
+
+    if(star.position.x > 200){
+      scene.remove(star);
+      clearInterval(interval);
+    }
+  },16);
+}
+
+setInterval(createShootingStar, 4000);
+
+// Animation
+function animate(){
+  requestAnimationFrame(animate);
+  starsMesh.rotation.y += 0.0005;
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', ()=>{
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+});
 </script>
 
 </body>
