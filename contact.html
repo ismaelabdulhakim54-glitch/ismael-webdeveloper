@@ -2,15 +2,12 @@
 <html>
 <head>
   <title>Contact</title>
-  <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
-
+ 
+<style>
+/* ===== BODY & BACKGROUND ===== */
 body{
+  margin:0;
+  font-family: Arial, sans-serif;
   height:100vh;
   display:flex;
   justify-content:center;
@@ -21,73 +18,77 @@ body{
   transition:0.4s;
 }
 
-/* Moving Stars Background */
+/* ===== STARS BACKGROUND ===== */
 .stars{
   position:fixed;
   width:100%;
   height:100%;
-  background:transparent url('https://www.transparenttextures.com/patterns/stardust.png');
+  background: radial-gradient(white, transparent 2px) repeat;
+  background-size: 3px 3px;
   animation: moveStars 60s linear infinite;
   z-index:0;
 }
 
 @keyframes moveStars{
   from{background-position:0 0;}
-  to{background-position:10000px 5000px;}
+  to{background-position:1000px 1000px;}
 }
 
-/* Contact Box */
+/* ===== CONTACT BOX ===== */
 .contact-box{
   position:relative;
   width:90%;
-  max-width:500px;
-  padding:30px;
+  max-width:550px;       /* slightly bigger box */
+  padding:40px;          /* larger padding */
   border-radius:20px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(15px);
+  background: rgba(255,255,255,0.05); /* subtle brightness */
+  backdrop-filter: blur(20px);
   z-index:1;
-  animation:floatBox 6s ease-in-out infinite;
+  animation: floatBox 6s ease-in-out infinite;
 }
 
-/* Floating */
+/* FLOATING ANIMATION */
 @keyframes floatBox{
   0%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
+  50%{transform:translateY(-10px);}
   100%{transform:translateY(0);}
 }
 
-/* Glowing Border Animation */
+/* GLOWING BORDER */
 .contact-box::before{
   content:"";
   position:absolute;
   inset:-2px;
   border-radius:22px;
-  background:linear-gradient(45deg,#00ffcc,#00ccff,#00ffcc);
+  background: linear-gradient(45deg,#00ffcc,#00ccff,#00ffcc);
   z-index:-1;
-  animation:glow 6s linear infinite;
+  animation: glow 6s linear infinite;
 }
 
 @keyframes glow{
-  0%{filter:blur(5px); opacity:0.7;}
-  50%{filter:blur(15px); opacity:1;}
-  100%{filter:blur(5px); opacity:0.7;}
+  0%{filter:blur(5px); opacity:0.6;}
+  50%{filter:blur(12px); opacity:0.9;}
+  100%{filter:blur(5px); opacity:0.6;}
 }
 
+/* HEADINGS */
 h2{
   text-align:center;
-  margin-bottom:20px;
+  margin-bottom:25px;
   color:#00ffcc;
 }
 
+/* INPUTS & TEXTAREA */
 input, textarea{
   width:100%;
-  padding:12px;
+  padding:14px;
   margin-bottom:15px;
   border-radius:10px;
   border:none;
   outline:none;
-  background:rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.1);
   color:white;
+  font-size:14px;
 }
 
 input::placeholder,
@@ -95,9 +96,10 @@ textarea::placeholder{
   color:#ddd;
 }
 
+/* BUTTONS */
 button{
   width:100%;
-  padding:12px;
+  padding:14px;
   border-radius:30px;
   border:none;
   background:#00ffcc;
@@ -105,6 +107,7 @@ button{
   font-weight:bold;
   cursor:pointer;
   transition:0.3s;
+  margin-top:10px;
 }
 
 button:hover{
@@ -112,7 +115,18 @@ button:hover{
   background:white;
 }
 
-/* Toggle Button */
+/* BACK BUTTON */
+.back-btn{
+  background: rgba(255,255,255,0.08);
+  color:#00ffcc;
+}
+
+.back-btn:hover{
+  background:#00ffcc;
+  color:black;
+}
+
+/* DARK/LIGHT MODE BUTTON */
 .mode-btn{
   position:absolute;
   top:20px;
@@ -125,14 +139,14 @@ button:hover{
   font-size:14px;
 }
 
-/* Light Mode */
+/* LIGHT MODE STYLES */
 .light-mode{
   background:white !important;
   color:black !important;
 }
 
 .light-mode .contact-box{
-  background:rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.9);
   color:black;
 }
 
@@ -145,7 +159,26 @@ button:hover{
 .light-mode h2{
   color:#007777;
 }
-  </style>
+
+/* ===== SHOOTING STARS ===== */
+.shooting-star{
+  position:absolute;
+  width:2px;
+  height:80px;
+  background: linear-gradient(white, transparent);
+  top:-100px;
+  left:50%;
+  transform: rotate(45deg);
+  animation: shoot 2s linear infinite;
+  z-index:0;
+}
+
+@keyframes shoot{
+  0%{transform: translate(0,0) rotate(45deg); opacity:1;}
+  100%{transform: translate(200vw,200vh) rotate(45deg); opacity:0;}
+}
+</style>
+ 
 </head>
 <body>
 
@@ -165,6 +198,10 @@ button:hover{
     <input type="hidden" name="_next" value="https://ismael-webdeveloper.onrender.com/thank-you.html">
 
     <button type="submit">Send Message</button>
+
+<button type="button" class="back-btn" onclick="location.href='index.html'">
+  ⬅ Back Home
+</button>
 
   </form>
 </div>
