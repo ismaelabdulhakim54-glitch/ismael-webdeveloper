@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apps | Ismael Webdeveloper</title>
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Ismael Webdeveloper</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="app.html" class="active">App</a>
+  </nav>
+</header>
+
+<section class="apps-section">
+  <h1> Applications 🚀</h1>
+  <p class="apps-description">
+    Download and explore my web apps and games.
+  </p>
+<marquee><h3>coming😊 soon✨️</h3></marquee>
+  <div class="apps-container">
+
+    <div class="app-card">
+      <h2>Galaxy Game & app 🌌</h2>
+      <p> Install and play now.</p>
+      <button>Download</button
+<h2>coming soon✨️😎</h2>
+    </div>
+
+  </div>
+</section>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+}
+</script>
+
+</body>
+</html>
