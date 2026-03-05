@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ismael Webdeveloper - Home</title>
+<style>
+  body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    transition: background 1s, color 1s;
+  }
+
+  /* Background animation */
+  @keyframes rainbow {
+    0%{background-color:#ff6b6b;}
+    20%{background-color:#feca57;}
+    40%{background-color:#48dbfb;}
+    60%{background-color:#1dd1a1;}
+    80%{background-color:#5f27cd;}
+    100%{background-color:#ff6b6b;}
+  }
+  body.rainbow-bg {
+    animation: rainbow 20s infinite;
+  }
+
+  header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    width:100%;
+    top:0;
+    z-index: 100;
+  }
+
+  header a {
+    color: white;
+    text-decoration:none;
+    margin: 0 10px;
+    font-weight:bold;
+  }
+
+  .dark-mode {
+    background:#222 !important;
+    color:white !important;
+  }
+
+  .hero {
+    margin-top:60px;
+    text-align:center;
+    padding:50px 20px;
+  }
+
+  .hero h1 {
+    font-size:3em;
+    margin-bottom:20px;
+    transition: font-size 0.3s;
+  }
+
+  marquee {
+    font-size: 1.2em;
+    font-weight:bold;
+    color:#fff;
+  }
+
+  .gallery {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:20px;
+  }
+
+  .gallery div {
+    width:300px;
+    text-align:center;
+    background: rgba(255,255,255,0.1);
+    padding:10px;
+    border-radius:10px;
+    transition: transform 0.3s;
+  }
+
+  .gallery div:hover {
+    transform: scale(1.05);
+  }
+
+  .gallery img {
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+  }
+
+  /* Image modal */
+  #imgModal {
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.9);
+    justify-content:center;
+    align-items:center;
+    z-index:200;
+  }
+  #imgModal img {
+    max-width:90%;
+    max-height:90%;
+  }
+  #imgModal span {
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:3em;
+    color:white;
+    cursor:pointer;
+  }
+
+  .mode-btn {
+    padding:5px 10px;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+    font-weight:bold;
+  }
+
+</style>
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0f172a">
+</head>
+<body class="rainbow-bg">
+<header>
+  <div class="logo">Ismael Webdeveloper</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="app.html">App</a>
+   <a href="chat">AI Chat 🤖</a>
+    <button class="mode-btn" onclick="toggleMode()">🌙</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Ismael Webdeveloper</h1>
+  <marquee behavior="scroll" direction="left">Building modern  websites | E-commerce |App &  more</marquee>
+</section>
+
+<section class="gallery">
+
+  <div>
+    <img src="images/pexels-kevin-ku-92347-577585.jpg" onclick="openImg(this)">
+    <p><strong>Clear Vision Development</strong><br>Building powerful digital solutions with clarity and precision.</p>
+  </div>
+
+  <div>
+    <img src="images/website-9049204_1280-1.jpg" onclick="openImg(this)">
+    <p><strong>Income Growth Systems</strong><br>Websites designed to increase business revenue.</p>
+  </div>
+
+  <div>
+    <img src="images/pexels-fotios-photos-2363482.jpg" onclick="openImg(this)">
+    <p><strong>Big Code Thinking</strong><br>Small code results in big projects.</p>
+  </div>
+
+  <div>
+    <img src="images/pexels-fotios-photos-16129705.jpg" onclick="openImg(this)">
+    <p><strong>Focused Development</strong><br>Clean, secure, professional coding.</p>
+  </div>
+
+  <div>
+    <img src="images/pexels-negativespace-160107.jpg" onclick="openImg(this)">
+    <p><strong>Clean Code Philosophy</strong><br>Maintainable architecture for long-term success.</p>
+  </div>
+
+  <div>
+    <img src="images/pexels-thepaintedsquare-4200831.jpg" onclick="openImg(this)">
+    <p><strong>you can access it in any browser</strong><br>Google-chrome,fire-fox,....etc.</p>
+  </div>
+
+</section>
+
+<!-- Image modal -->
+<div id="imgModal" onclick="closeImg()">
+  <span>&times;</span>
+  <img id="modalImg">
+</div>
+
+<script>
+function openImg(img){
+  document.getElementById("modalImg").src = img.src;
+  document.getElementById("imgModal").style.display="flex";
+}
+function closeImg(){
+  document.getElementById("imgModal").style.display="none";
+}
+
+function toggleMode(){
+  document.body.classList.toggle("dark-mode");
+}
+</script>
+<body>
+  <!-- Your page content goes here -->
+
+  <!-- Token display -->
+  <p id="tokenDisplay" style="word-break: break-all; color: yellow;"></p>
+
+  <!-- Register Firebase Service Worker -->
+  <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/firebase-messaging-sw.js')
+      .then(() => console.log("Firebase Service Worker Registered"))
+      .catch(err => console.log("Service Worker registration failed:", err));
+  }
+  </script>
+
+  <!-- Firebase Messaging -->
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB8bxgR6veYlGd21NOUq-is1iqaDFdMANA",
+    authDomain: "abdu-all.firebaseapp.com",
+    projectId: "abdu-all",
+    storageBucket: "abdu-all.firebasestorage.app",
+    messagingSenderId: "823333682925",
+    appId: "1:823333682925:web:8ba6bdae41fefb1c6cd6e4"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const messaging = getMessaging(app);
+
+  // Ask notification permission
+  Notification.requestPermission().then((permission) => {
+    if (permission === "granted") {
+      getToken(messaging, {
+        vapidKey: "BKzqdjfIL_LwCJWuWsOpcp5Lt8Vc4tOYv5OnfqylfzckJmRDu2IjyRsqcdOc-BpCw1DcqGZ3ZRt4WtPHQmxf-Z4"
+      }).then((currentToken) => {
+        if (currentToken) {
+          // Display token on page
+          document.getElementById("tokenDisplay").innerText = "TOKEN: " + currentToken;
+        } else {
+          document.getElementById("tokenDisplay").innerText = "No registration token available.";
+        }
+      }).catch((err) => {
+        document.getElementById("tokenDisplay").innerText = "Error getting token: " + err;
+      });
+    } else {
+      document.getElementById("tokenDisplay").innerText = "Notification permission denied.";
+    }
+  });
+  </script>
+</body>
+</html>
+</body>
+</html>
