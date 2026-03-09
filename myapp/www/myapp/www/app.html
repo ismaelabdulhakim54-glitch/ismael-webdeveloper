@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ismael WebDeveloper - Apps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Floating Particles -->
+<div class="particles"></div>
+
+<header>
+  <div class="logo">Ismael Webdeveloper</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="app.html" class="active">App</a>
+  </nav>
+</header>
+
+<section class="app-section">
+    <h1>Game Apps</h1>
+
+    <div class="games-container">
+        <div class="game-card" id="templeCard">
+            <h2>dont click this </h2>
+        </div>
+
+        <div class="game-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/565/565547.png">
+            <h2>Coming Soon</h2>
+        </div>
+    </div>
+</section>
+
+<!-- Loading Screen -->
+<div id="loader">
+    <div class="spinner"></div>
+    <p>Loading Game...</p>
+</div>
+
+<!-- GAME MODAL -->
+<div id="gameModal">
+    <button id="closeBtn">✖</button>
+    <canvas id="gameCanvas"></canvas>
+</div>
+
+<!-- Click Sound -->
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+
+<script src="temple-run.js"></script>
+
+<script>
+const templeCard = document.getElementById("templeCard");
+const modal = document.getElementById("gameModal");
+const closeBtn = document.getElementById("closeBtn");
+const loader = document.getElementById("loader");
+const clickSound = document.getElementById("clickSound");
+
+templeCard.onclick = function(){
+
+    clickSound.play();
+
+    templeCard.classList.add("bounce");
+
+    loader.style.display = "flex";
+
+    setTimeout(()=>{
+        loader.style.display = "none";
+        modal.style.display = "block";
+        startGame();
+    },1500);
+};
+
+closeBtn.onclick = function(){
+    location.reload();
+};
+</script>
+
+</body>
+</html>
